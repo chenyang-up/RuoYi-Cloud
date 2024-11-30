@@ -1,0 +1,40 @@
+00:05:24.481 [main] ERROR i.n.r.d.DnsServerAddressStreamProviders - [<clinit>,79] - Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+00:05:27.723 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+00:06:35.930 [main] ERROR i.n.r.d.DnsServerAddressStreamProviders - [<clinit>,79] - Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+00:06:39.191 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+00:08:32.412 [main] ERROR i.n.r.d.DnsServerAddressStreamProviders - [<clinit>,79] - Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+15:37:27.550 [reactor-http-nio-3] ERROR c.r.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo,错误信息:登录状态已过期
+15:37:27.713 [reactor-http-nio-4] ERROR c.r.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo,错误信息:登录状态已过期
+16:00:34.490 [reactor-http-nio-4] ERROR c.r.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/pick_up_address,异常信息:404 NOT_FOUND
+16:29:43.773 [reactor-http-nio-1] ERROR c.r.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/pick_up_address,异常信息:404 NOT_FOUND
+17:36:43.670 [reactor-http-nio-2] ERROR c.r.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/pick_up_address/getPageList,异常信息:Connection refused: /192.168.3.68:9201
+17:37:25.931 [boundedElastic-276] ERROR c.r.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/system/pick_up_address/getPageList,异常信息:503 SERVICE_UNAVAILABLE "Unable to find instance for ruoyi-system"
+17:38:21.818 [reactor-http-nio-8] ERROR c.r.g.h.GatewayExceptionHandler - [handle,52] - [网关异常处理]请求路径:/pick_up_address/upadteStatus,异常信息:404 NOT_FOUND
+17:38:30.936 [reactor-http-nio-9] ERROR c.r.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/pick_up_address/upadteStatus,错误信息:令牌不能为空
+23:16:38.197 [main] ERROR i.n.r.d.DnsServerAddressStreamProviders - [<clinit>,79] - Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
