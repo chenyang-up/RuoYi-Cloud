@@ -1,0 +1,23 @@
+######################################################################
+# Build Tools
+.idea
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+logs/
+
+.flattened-pom.xml
+
+######################################################################
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.log
+
+
