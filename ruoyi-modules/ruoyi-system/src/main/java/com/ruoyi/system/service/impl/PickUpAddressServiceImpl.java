@@ -54,6 +54,12 @@ public class PickUpAddressServiceImpl implements IPickUpAddressService {
     }
 
     @Override
+    public PickUpAddressVo getInfo(String addressCode) {
+        PickUpAddress pickUpAddress = pickUpAddressMapper.selectOneByAddressCode(addressCode);
+        return BeanV1Utils.toBean(pickUpAddress, PickUpAddressVo.class);
+    }
+
+    @Override
     public void insert(PickUpAddressPo entity) {
         // 校验取货地址是否唯一
         PickUpAddress pickUpAddress = pickUpAddressMapper.selectOneByAddressName(entity.getAddressName());
@@ -75,7 +81,7 @@ public class PickUpAddressServiceImpl implements IPickUpAddressService {
     @Override
     public void update(PickUpAddressPo entity) {
         PickUpAddress pickUpAddress = pickUpAddressMapper.selectOneByAddressName(entity.getAddressName());
-        if (null != pickUpAddress && pickUpAddress.getAddressCode().equals(entity.getAddressCode())) {
+        if (null != pickUpAddress && !pickUpAddress.getAddressCode().equals(entity.getAddressCode())) {
             throw new ServiceException("取货地址已存在! 请重新修改.");
         }
 
@@ -94,5 +100,10 @@ public class PickUpAddressServiceImpl implements IPickUpAddressService {
     @Override
     public void deleteByCode(String addressCode) {
         pickUpAddressMapper.deleteAddressByCode(addressCode);
+    }
+
+    @Override
+    public void deleteByCodes(List<String> addressCodes) {
+        pickUpAddressMapper.deleteAddressByCodes(addressCodes);
     }
 }

@@ -8,6 +8,8 @@ import com.ruoyi.system.domain.qo.PickUpAddressQo;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 
 /**
  * 取货地址 数据层
@@ -34,9 +36,15 @@ public interface PickUpAddressMapper extends BaseMapper<PickUpAddress> {
         if (null != qo.getCanValid()) {
             queryWrapper.eq("can_valid", qo.getCanValid());
         }
-
+        queryWrapper.orderByDesc("create_time");
         // 执行分页查询
         return selectPage(page, queryWrapper);
+    }
+
+    default PickUpAddress selectOneByAddressCode(String addressCode) {
+        return selectOne(new QueryWrapper<PickUpAddress>()
+                .eq("address_code", addressCode)
+        );
     }
 
     /**
@@ -86,6 +94,15 @@ public interface PickUpAddressMapper extends BaseMapper<PickUpAddress> {
      */
     default void deleteAddressByCode(String addressCode) {
         delete(new QueryWrapper<PickUpAddress>().eq("address_code", addressCode));
+    }
+
+    /**
+     * 批量删除取货地址信息
+     *
+     * @param addressCodes 取货地址codes
+     */
+    default void deleteAddressByCodes(List<String> addressCodes) {
+        delete(new QueryWrapper<PickUpAddress>().in("address_code", addressCodes));
     }
 
 }

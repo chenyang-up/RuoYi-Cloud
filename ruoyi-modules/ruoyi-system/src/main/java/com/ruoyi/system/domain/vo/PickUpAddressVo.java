@@ -30,7 +30,7 @@ public class PickUpAddressVo {
     /**
      *  是否有效 server_address_status
      * */
-    private Integer canValid;
+    private String canValid;
 
     /**
      *  是否有效文本

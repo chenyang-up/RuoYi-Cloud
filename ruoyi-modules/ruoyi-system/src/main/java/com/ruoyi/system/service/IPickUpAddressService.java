@@ -6,6 +6,8 @@ import com.ruoyi.system.domain.po.PickUpAddressPo;
 import com.ruoyi.system.domain.qo.PickUpAddressQo;
 import com.ruoyi.system.domain.vo.PickUpAddressVo;
 
+import java.util.List;
+
 
 /**
  * 取货地址 服务层
@@ -20,6 +22,11 @@ public interface IPickUpAddressService {
      * */
     Page<PickUpAddressVo> selectPageList(PickUpAddressQo qo);
 
+    /**
+     * 通过 addressCode 获取取货地址信息
+     * */
+    PickUpAddressVo getInfo(String addressCode);
+
     void insert(PickUpAddressPo entity);
 
     void update(PickUpAddressPo entity);
@@ -33,5 +40,10 @@ public interface IPickUpAddressService {
     void updateStatusByCode(String code, Integer canValid);
 
     void deleteByCode(String addressCode);
+
+    /**
+     * 批量删除
+     * */
+    void deleteByCodes(List<String> addressCodes);
 
 }

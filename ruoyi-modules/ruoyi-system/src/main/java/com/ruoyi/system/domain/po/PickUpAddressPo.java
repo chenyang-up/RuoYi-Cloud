@@ -3,6 +3,8 @@ package com.ruoyi.system.domain.po;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 取货地址 PO
  *
@@ -29,4 +31,9 @@ public class PickUpAddressPo{
      *  是否有效 server_address_status
      * */
     private Integer canValid;
+
+    /**
+     * 取货地址code 列表
+     * */
+    private List<String> addressCodes;
 }

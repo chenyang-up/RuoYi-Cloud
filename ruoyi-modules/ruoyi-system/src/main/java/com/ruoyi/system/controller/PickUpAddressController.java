@@ -12,6 +12,7 @@ import com.ruoyi.system.domain.po.PickUpAddressPo;
 import com.ruoyi.system.domain.qo.PickUpAddressQo;
 import com.ruoyi.system.domain.vo.PickUpAddressVo;
 import com.ruoyi.system.service.IPickUpAddressService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,9 +36,17 @@ public class PickUpAddressController extends BaseController {
      */
     @RequiresPermissions("server:pick_up_address:list")
     @GetMapping("/getPageList")
-    public AjaxResult page(@Validated @RequestBody PickUpAddressQo qo) {
+    public AjaxResult page(PickUpAddressQo qo) {
         Page<PickUpAddressVo> pageList = pickUpAddressService.selectPageList(qo);
         return success(pageList);
+    }
+
+    /**
+     * 获取取货地址信息
+     */
+    @GetMapping("/getInfoByCode/{addressCode}")
+    public AjaxResult getInfo(@PathVariable String addressCode) {
+        return success(pickUpAddressService.getInfo(addressCode));
     }
 
     /**
@@ -74,13 +83,16 @@ public class PickUpAddressController extends BaseController {
     }
 
     /**
-     * 删除取货地址
+     * 删除取货地址(批量)
      */
     @RequiresPermissions("server:pick_up_address:remove")
     @Log(title = "取货地址管理", businessType = BusinessType.DELETE)
-    @DeleteMapping
-    public AjaxResult edit(String addressCode) {
-        pickUpAddressService.deleteByCode(addressCode);
+    @DeleteMapping("/deleteBatch")
+    public AjaxResult deleteBatch(@RequestBody PickUpAddressPo po) {
+        if (CollectionUtils.isEmpty(po.getAddressCodes())) {
+            return error("addressCodes列表选择为空!");
+        }
+        pickUpAddressService.deleteByCodes(po.getAddressCodes());
         return success();
     }
 
