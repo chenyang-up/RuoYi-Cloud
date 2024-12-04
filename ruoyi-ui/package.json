@@ -1,8 +1,8 @@
 {
-  "name": "ruoyi",
+  "name": "sxq",
   "version": "3.6.5",
-  "description": "若依管理系统",
-  "author": "若依",
+  "description": "万事屋管理系统",
+  "author": "晓奇",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
