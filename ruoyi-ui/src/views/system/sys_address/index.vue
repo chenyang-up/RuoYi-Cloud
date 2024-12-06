@@ -60,19 +60,19 @@
       <el-table-column prop="code" v-if="false" label="节点code"></el-table-column>
       <el-table-column prop="fullName" v-if="false" label="地址名称(全称)"></el-table-column>
       <el-table-column prop="parentCode" v-if="false" label="父级节点code"></el-table-column>
-      <el-table-column prop="shortName" label="地址名称" width="40%"></el-table-column>
-      <el-table-column prop="parentName" label="父级名称" width="30%"></el-table-column>
-      <el-table-column prop="status" label="状态" width="10%">
+      <el-table-column prop="shortName" label="地址名称" width="300"></el-table-column>
+      <el-table-column prop="parentName" label="父级名称" width="300"></el-table-column>
+      <el-table-column prop="status" label="状态" width="100">
         <template slot-scope="scope">
           <dict-tag :options="dict.type.system_general_switching_status" :value="scope.row.addressStatus"/>
         </template>
       </el-table-column>
-      <el-table-column label="创建时间" align="center" prop="createTime" width="20%">
+      <el-table-column label="创建时间" align="center" prop="createTime" width="200">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" width="20%" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -176,7 +176,7 @@ export default {
       // 是否显示弹出层
       open: false,
       // 是否展开，默认全部展开
-      isExpandAll: true,
+      isExpandAll: false,
       // 重新渲染表格状态
       refreshTable: true,
       // 查询参数
@@ -188,9 +188,6 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        // parentCode: [
-        //   { required: true, message: "上级部门不能为空", trigger: "blur" }
-        // ],
         shortName: [
           { required: true, message: "地址简称不能为空", trigger: "blur" }
         ],

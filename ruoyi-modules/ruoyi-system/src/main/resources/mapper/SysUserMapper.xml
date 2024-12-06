@@ -217,5 +217,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			#{userId}
         </foreach> 
  	</delete>
-	
-</mapper> 
+
+    <select id="selectUserListByUserNames" resultType="com.ruoyi.system.api.domain.SysUser">
+		select user_id, user_name, nick_name, email, phonenumber, sex, status, create_time from sys_user
+		where user_name in
+		<foreach collection="userNames" item="userName" open="(" separator="," close=")">
+			#{userName}
+		</foreach>
+	</select>
+</mapper>

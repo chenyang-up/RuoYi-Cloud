@@ -157,12 +157,20 @@ export function mergeRecursive(source, target) {
  * @param {*} parentId 父节点字段 默认 'parentId'
  * @param {*} children 孩子节点字段 默认 'children'
  */
-export function handleTree(data, id, parentId, children) {
+export function handleTree(data, id, parentId, children, status) {
   let config = {
     id: id || 'id',
     parentId: parentId || 'parentId',
-    childrenList: children || 'children'
+    childrenList: children || 'children',
+    status: status || 'status'
   };
+
+  // 转换状态字段为布尔
+  if (status !== null) {
+    for (let d of data) {
+      d[config.status] = d[config.status] === "0";
+    }
+  }
 
   var childrenListMap = {};
   var nodeIds = {};

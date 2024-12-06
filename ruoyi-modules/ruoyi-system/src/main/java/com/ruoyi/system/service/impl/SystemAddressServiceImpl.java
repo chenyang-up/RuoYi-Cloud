@@ -72,6 +72,11 @@ public class SystemAddressServiceImpl implements ISystemAddressService {
     }
 
     @Override
+    public List<SystemAddress> selectListByCodes(List<String> codes) {
+        return systemAddressMapper.selectListByCodes(codes);
+    }
+
+    @Override
     public SystemAddressVo getInfo(String addressCode) {
         SystemAddress systemAddress = systemAddressMapper.selectOneByCode(addressCode);
         SystemAddressVo vo = BeanV1Utils.toBean(systemAddress, SystemAddressVo.class);

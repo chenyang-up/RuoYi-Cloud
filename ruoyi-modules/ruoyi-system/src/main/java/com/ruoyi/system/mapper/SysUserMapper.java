@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import com.ruoyi.system.api.domain.SysUser;
@@ -11,7 +12,17 @@ import com.ruoyi.system.api.domain.SysUser;
  * 
  * @author ruoyi
  */
-public interface SysUserMapper {
+public interface SysUserMapper{
+
+    /**
+     * 通过账号列表获取用户信息
+     *
+     * @author chenzhongxin
+     * @date 2024/12/05 10:54
+     */
+
+    public List<SysUser> selectUserListByUserNames(@Param("userNames") List<String> userNames);
+
     /**
      * 根据条件分页查询用户列表
      * 

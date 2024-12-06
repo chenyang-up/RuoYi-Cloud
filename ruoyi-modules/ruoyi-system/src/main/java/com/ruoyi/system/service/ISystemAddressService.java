@@ -1,6 +1,7 @@
 package com.ruoyi.system.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ruoyi.system.domain.dao.SystemAddress;
 import com.ruoyi.system.domain.po.PickUpAddressPo;
 import com.ruoyi.system.domain.po.SystemAddressPo;
 import com.ruoyi.system.domain.qo.PickUpAddressQo;
@@ -32,6 +33,15 @@ public interface ISystemAddressService {
      * @date 2024/12/03
      * */
     List<SystemAddressVo> selectExcludeList(String code);
+
+    /**
+     * 通过code列表获取系统地址列表
+     *
+     * @author chenzhongxin
+     * @date 2024/12/05 11:54
+     */
+
+    List<SystemAddress> selectListByCodes (List<String> codes);
 
     /**
      * 通过 addressCode 获取地址信息
